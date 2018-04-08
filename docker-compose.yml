@@ -1,0 +1,21 @@
+############################################################
+# Docker Compose for Odoo dev environment
+# 
+############################################################
+version: "3"
+
+services:
+  odoo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cgarciaarano/econnect
+    environment:
+      - DEBUG=false
+    ports:
+      - 8069:8069
+      - 8071:8071
+
+  db:
+    image: postgres:latest
+
